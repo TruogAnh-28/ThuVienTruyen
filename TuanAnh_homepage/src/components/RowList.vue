@@ -1,6 +1,8 @@
 <template lang="pug">
 div.row-list
-  h2.list-title {{ title }}
+  .list-header
+    h2.list-title {{ title }}
+    span.view-all Tất cả
   div.list-container
     div.card(v-for="(item, index) in items" :key="index" )
       img(:src="resolveImagePath(item.cover)" :alt="item.name")
@@ -24,64 +26,62 @@ export default {
   }
 }
 </script>
-
 <style lang="stylus" scoped>
 .row-list
-  padding: 8px;
-  width: 100%;
-  background-color: white;
+  padding: 8px
+  width: 100%
+  background-color: white
 
-  .list-title {
-    font-size: 18px;
-    font-weight: bold;
-    padding-left: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ccc;
-  }
+  .list-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-left: 16px
+    padding-right: 2rem
+    border-bottom: 1px solid #ccc
 
-  .list-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 10px 0;
-    scroll-snap-type: x mandatory;
+    .list-title
+      font-size: 18px
+      font-weight: bold
 
+    .view-all
+      font-size: 14px
+      color: #007bff
+      cursor: pointer
+      font: 14px / 16px Arial, '-apple-system', Simsun
+      color: #a6a6a6
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  .list-container
+    display: flex
+    overflow-x: auto
+    overflow-y: hidden  // Ngăn chặn cuộn theo trục y
+    gap: 20px
+    padding: 10px 0
+    scroll-snap-type: x mandatory
 
-    .card {
-      flex: 0 0 calc((100% - 70px) / 4);
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      cursor: pointer;
-      scroll-snap-align: start;
+    .card
+      flex: 0 0 calc((100% - 70px) / 4)
+      border-radius: 5px
+      cursor: pointer
+      scroll-snap-align: start
 
-      img {
-        width: 100%;
-        height: 130px;
-        object-fit: cover;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
+      img
+        width: 100%
+        height: 130px
+        object-fit: cover
+        transition: background-color 0.3s
 
-      &:hover {
-        background-color: #f0f0f0;
-      }
+      &:hover
+        background-color: #f0f0f0
 
-      .card-title {
-        font-size: 13px;
-        margin-top: 10px;
-        text-align: center;
-        color: #666;
-      }
-    }
+      .card-title
+        font-size: 13px
+        margin-top: 10px
+        text-align: center
+        color: #666
+        max-height: 2rem
 
-    @media (min-width: 768px) {
-      .card {
-        flex: 0 0 calc((100% - 90px) / 6);
-      }
-    }
-  }
+    @media (min-width: 768px)
+      .card
+        flex: 0 0 calc((100% - 90px) / 6)
 </style>

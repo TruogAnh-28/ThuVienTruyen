@@ -1,6 +1,8 @@
 <template lang="pug">
 div.list-container
-  h2.list-title {{ title }}
+  .list-header
+    h2.list-title {{ title }}
+    span.view-all Tất cả
   div.content
     div.first-item
       div.book-img 
@@ -8,7 +10,7 @@ div.list-container
       div.book-info
         h3.name {{ (firstItem.title) }}
         p.author {{ firstItem.author }}
-        p.chapers
+        p.chapters
             b.number {{firstItem.chapter}}
             span.chapter chương
         p.desc_short {{ truncateDesc(firstItem.desc_short) }}
@@ -73,20 +75,25 @@ export default {
   align-items: center
   width: 100%
   background-color: white
-  padding: 8px
-
+.list-header
+  display: flex
+  padding-left: 24px
+  justify-content: space-between
+  align-items: center
 .list-title
   font-size: 18px
-  font-weight: 400
+  font-weight: bold
   line-height: 25px
   overflow: hidden
-  height: 24px
-  padding-left: 24px
   color: #1a1a1a
   font-family: arial
-
-  width: 100%
-
+.view-all
+      font-size: 14px
+      color: #007bff
+      cursor: pointer
+      font: 14px / 16px Arial, '-apple-system', Simsun;
+      color: #a6a6a6;
+      padding-right: 2rem
 .content
   display: flex
   flex-direction: row
@@ -138,9 +145,10 @@ export default {
       color: #bf2c24
       text-align: center
       margin:0
-    .chapers
+    .chapters
       text-align: center
-
+      .number
+          margin-right: 6px
 .center
   flex: 1
   display: flex
@@ -183,7 +191,7 @@ export default {
             color: #a6a6a6
 
 @media (min-width: 1000px)
-  .list-title
+  .list-header
     width: 63rem
   .content
     width: 63rem
@@ -197,7 +205,7 @@ export default {
     margin: 4px 0px
 
 @media (min-width: 1200px)
-  .list-title
+  .list-header
     width: 75rem
   .content
     width: 75rem
@@ -210,7 +218,7 @@ export default {
     margin: 8px 0px
 
 @media (min-width: 1400px)
-  .list-title
+  .list-header
     width: 90rem
   .content
     width: 90rem
