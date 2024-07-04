@@ -14,10 +14,10 @@ div.home
     ColumnList(:title="'Yêu thích'" :items="cards")
     ColumnList(:title="'Theo dõi nhiều'" :items="cards")
   div(v-if="!isMobile").lists.centered.ranking
-    Ranking(:title="'Top Converters'" :items="rankingItems")
-    Ranking(:title="'Top Đại Gia'" :items="rankingItems")
-    Ranking(:title="'Bảng xếp hạng người dùng'" :items="rankingItems")
-    Ranking(:title="'Bảng xếp hạng tiêu phí'" :items="rankingItems")
+    Ranking(:title="'Top Converters'" :items="userRanking")
+    Ranking(:title="'Top Đại Gia'" :items="userRanking")
+    Ranking(:title="'Bảng xếp hạng người dùng'" :items="userRanking")
+    Ranking(:title="'Bảng xếp hạng tiêu phí'" :items="userRanking")
   Footer(v-if="!isMobile")
 </template>
 
@@ -28,6 +28,7 @@ import SliderComponent from '@/components/IntroContent/SliderComponent.vue'
 import SearchBarComponent from '@/components/Header/SearchBar.vue'
 import ColumnList from '@/components/Lists/ColumnList.vue'
 import cards from '@/z_data/cardlist01.json'
+import userRanking from '@/z_data/userRanking.json'
 import List from '@/components/Lists/List.vue'
 import ReponsiveList from '@/components/Lists/ReponsiveList.vue'
 import ContentIntro from '@/components/IntroContent/ContentIntro.vue'
@@ -50,61 +51,8 @@ export default {
   data() {
     return {
       cards: cards.cards,
-      isMobile: true,
-      rankingItems: [
-        {
-          name: 'hanals',
-          link: 'https://truyen.tangthuvien.vn/converter/hanals',
-          chapters: 779,
-          cover:
-            'https://www.nae.vn/ttv/ttv/public/images_user/b3022d252d733397227a2ad98a824b4047ce6907744d0c2e693baa299b24382b.jpg'
-        },
-        {
-          name: 'vohansat',
-          link: 'https://truyen.tangthuvien.vn/converter/vohansat',
-          chapters: 637
-        },
-        {
-          name: 'Lãnh Phong',
-          link: 'https://truyen.tangthuvien.vn/converter/Lãnh Phong',
-          chapters: 392
-        },
-        {
-          name: 'nguoithanbi2010',
-          link: 'https://truyen.tangthuvien.vn/converter/nguoithanbi2010',
-          chapters: 316
-        },
-        {
-          name: 'Hoa Anh Thảo',
-          link: 'https://truyen.tangthuvien.vn/converter/Hoa Anh Thảo',
-          chapters: 198
-        },
-        {
-          name: 'RyuYamada',
-          link: 'https://truyen.tangthuvien.vn/converter/RyuYamada',
-          chapters: 182
-        },
-        {
-          name: 'viettiev',
-          link: 'https://truyen.tangthuvien.vn/converter/viettiev',
-          chapters: 149
-        },
-        {
-          name: 'Hắc Hắc Hắc',
-          link: 'https://truyen.tangthuvien.vn/converter/huypho2003',
-          chapters: 113
-        },
-        {
-          name: 'why03you',
-          link: 'https://truyen.tangthuvien.vn/converter/why03you',
-          chapters: 87
-        },
-        {
-          name: 'NguyenHoang',
-          link: 'https://truyen.tangthuvien.vn/converter/NguyenHoang',
-          chapters: 65
-        }
-      ]
+      userRanking: userRanking.userRanking,
+      isMobile: true
     }
   },
   mounted() {

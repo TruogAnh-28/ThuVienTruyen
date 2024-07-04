@@ -2,32 +2,21 @@
 div.news-list
   h2.list-title.odd-row Tin tức
   div.list-container
-    div.row(v-for="(news, index) in newsList" :key="index" :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }")
+    div.row(v-for="(news, index) in limitedNewsList" :key="index" :class="{ 'even-row': index % 2 === 0, 'odd-row': index % 2 !== 0 }")
       span.news-title {{ news.title }}
 </template>
-
 <script>
+import newsLists from '@/z_data/newsLists.json'
 export default {
   name: 'News',
   data() {
     return {
-      newsList: [
-        { title: 'News 1', link: '#', date: '2023-07-01' },
-        { title: 'News 2', link: '#', date: '2023-07-02' },
-        { title: 'News 3', link: '#', date: '2023-07-03' },
-        { title: 'News 4', link: '#', date: '2023-07-04' },
-        { title: 'News 5', link: '#', date: '2023-07-05' }
-      ]
+      newsLists: newsLists.newsLists
     }
   },
   computed: {
-    newsRows() {
-      const rows = []
-      for (let i = 0; i < this.newsList.length; i += 2) {
-        const row = this.newsList.slice(i, i + 2)
-        rows.push(row)
-      }
-      return rows
+    limitedNewsList() {
+      return this.newsLists.slice(0, 5)
     }
   }
 }
@@ -39,7 +28,6 @@ export default {
   background-color: white;
   margin: 0 auto;
 
-
   .list-title
     font-size: 18px;
     font-weight: bold;
@@ -48,6 +36,7 @@ export default {
     text-align: center
     padding: 10px 6px;
     border: 1px solid #e6e6e6;
+
   .list-container
     width: 100%;
 
@@ -59,7 +48,7 @@ export default {
 
     &:hover
       .news-title
-         color:red
+         color: red
 
   .even-row
     background-color: #f0f0f0; /* Light gray background for even rows */
@@ -75,5 +64,5 @@ export default {
 
 @media (max-width: 600px)
   .news-title
-    flex: 1 0 100%;
+    flex: 1 0 100%
 </style>
