@@ -7,9 +7,9 @@ div.slider
 
 <script>
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
-import slider1 from '@/assets/slider1.jpg'
-import slider2 from '@/assets/slider2.jpg'
-import slider3 from '@/assets/slider3.jpg'
+import slider1 from '@/assets/slider/slider1.jpg'
+import slider2 from '@/assets/slider/slider2.jpg'
+import slider3 from '@/assets/slider/slider3.jpg'
 
 export default {
   name: 'SliderComponent',
