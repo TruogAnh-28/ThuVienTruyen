@@ -1,14 +1,13 @@
 <template lang="pug">
 template(v-if="isMobile")
-    RowList(:title="'Truyện vừa xem'" :items="cards")
+    RowList(:title="title" :items="items")
 template(v-else)
-    List(:title="'Truyện vừa xem'" :items="cards")
+    List(:title="title" :items="items")
 </template>
 
 <script>
-import List from '@/components/List.vue'
-import RowList from '@/components/RowList.vue'
-import cards from '@/z_data/cardlist01.json'
+import List from '@/components/Lists/List.vue'
+import RowList from '@/components/Lists/RowList.vue'
 export default {
   name: 'ReponsiveList',
   props: {
@@ -21,7 +20,6 @@ export default {
   },
   data() {
     return {
-      cards: cards.cards,
       isMobile: true
     }
   },

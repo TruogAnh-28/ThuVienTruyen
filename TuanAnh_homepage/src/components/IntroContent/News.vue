@@ -39,6 +39,7 @@ export default {
   background-color: white;
   margin: 0 auto;
 
+
   .list-title
     font-size: 18px;
     font-weight: bold;
@@ -46,10 +47,12 @@ export default {
     margin: 0
     text-align: center
     padding: 10px 6px;
+    border: 1px solid #e6e6e6;
   .list-container
     width: 100%;
 
   .row
+    border: 1px solid #e6e6e6;
     padding: 10px 0;
     cursor: pointer;
     transition: background-color 0.3s;

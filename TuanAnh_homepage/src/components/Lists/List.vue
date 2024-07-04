@@ -16,7 +16,6 @@ div.list-container
         p.desc_short {{ truncateDesc(firstItem.desc_short) }}
     div.center
       ul.list
-        div.line
         li.card(v-for="(item, index) in filteredItems" :key="index" @click="navigateTo(item.route)")
           div.card-content
             div.book-img 
@@ -74,12 +73,13 @@ export default {
   flex-direction: column
   align-items: center
   width: 100%
-  background-color: white
+
 .list-header
   display: flex
   padding-left: 24px
   justify-content: space-between
   align-items: center
+
 .list-title
   font-size: 18px
   font-weight: bold
@@ -105,6 +105,7 @@ export default {
   border-bottom: 1px solid #666
 
 .first-item
+  cursor pointer
   overflow: hidden
   width: 20%
   height: 32rem
@@ -126,6 +127,7 @@ export default {
 
   .book-info
     .name
+      cursor pointer
       font: 700 16px / 24px Arial, HelveticaNeue-Light, 'Helvetica Neue Light', 'Microsoft YaHei', sans-serif
       overflow: hidden
       height: 24px
@@ -140,6 +142,7 @@ export default {
       color: #626260
       padding 0px 20px
     .author
+      cursor pointer
       font: 12px / 16px Arial, '-apple-system', Simsun
       padding: 3px 0 5px
       color: #bf2c24
@@ -158,12 +161,13 @@ export default {
   .list
     display: flex
     flex-wrap: wrap
-    padding: 20px 0 0 30px
     box-sizing: border-box
-    list-style: none // Remove bullet points
-    padding: 0 // Remove default padding
+    list-style: none
+    padding: 0
+
     .card
       margin: 10px
+      border-bottom: 1px solid #eeeeee;
       box-sizing: border-box
       .card-content
         display: flex
@@ -177,14 +181,19 @@ export default {
             margin-bottom: 12px
             object-fit: cover
         .book-info
+          flex-direction: column
+          justify-content: space-between
           width: 100%
           .name
+            cursor pointer
             color: #1a1a1a
             margin: 0
             height: 21px
           .desc_short
             color: #666
           .author
+            margin-top: 0 auto
+            cursor pointer
             font-family: Arial, '-apple-system', Simsun
             font-size: 14px
             line-height: 18px

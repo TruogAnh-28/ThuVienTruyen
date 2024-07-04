@@ -14,9 +14,9 @@ div.combined-container(:class="deviceType")
 </template>
 
 <script>
-import Category from '@/components/Category.vue'
-import SliderComponent from '@/components/SliderComponent.vue'
-import News from '@/components/News.vue'
+import Category from '@/components/IntroContent/Category.vue'
+import SliderComponent from '@/components/IntroContent/SliderComponent.vue'
+import News from '@/components/IntroContent/News.vue'
 
 export default {
   name: 'ContentIntro',
