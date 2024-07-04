@@ -35,19 +35,28 @@ export default {
 
 <style lang="stylus" scoped>
 .ranking-container
-  width 20rem
+  @media (min-width :768px)
+    width 22rem
+  @media (min-width:1000px)
+    width 28rem
+  @media (min-width:1200px)
+    width 16rem
+  @media (min-width:1400px)
+    width 18rem
   background-color #fff
-  border-radius 8px
+
   box-shadow 0 1px 3px rgba(0, 0, 0, 0.1)
 
 .list-title
   font-size 1.5rem
-  margin-bottom 1rem
+  padding 1rem 0rem
   text-align: center
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  font-family: Arial; /* Changed to Arial */
-
+  font-family: Arial;
+  background-color: #f0f0f0
+  margin: 0 auto
+  border-bottom 1px solid #f0f0f0
 .ranking-list
   list-style none
   padding 0
@@ -59,12 +68,7 @@ export default {
   display flex
   justify-content space-between
 
-  &.no1
-    background-color #ffeb3b
-  &.no2
-    background-color #cddc39
-  &.no3
-    background-color #8bc34a
+
 
 .book-info
   flex 1
@@ -82,6 +86,7 @@ export default {
   h3
     margin 0
     font-size 1rem
+
 
 
   h4

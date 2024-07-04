@@ -13,6 +13,11 @@ div.home
     ColumnList(:title="'Xem nhiều'" :items="cards")
     ColumnList(:title="'Yêu thích'" :items="cards")
     ColumnList(:title="'Theo dõi nhiều'" :items="cards")
+  div(v-if="!isMobile").lists.centered.ranking
+    Ranking(:title="'Top Converters'" :items="rankingItems")
+    Ranking(:title="'Top Đại Gia'" :items="rankingItems")
+    Ranking(:title="'Bảng xếp hạng người dùng'" :items="rankingItems")
+    Ranking(:title="'Bảng xếp hạng tiêu phí'" :items="rankingItems")
   Footer(v-if="!isMobile")
 </template>
 
@@ -22,12 +27,9 @@ import NavBarComponent from '@/components/NavBar.vue'
 import SliderComponent from '@/components/IntroContent/SliderComponent.vue'
 import SearchBarComponent from '@/components/Header/SearchBar.vue'
 import ColumnList from '@/components/Lists/ColumnList.vue'
-import ListComponent from '@/components/Lists/ListComponent.vue'
 import cards from '@/z_data/cardlist01.json'
 import List from '@/components/Lists/List.vue'
-import Category from '@/components/IntroContent/Category.vue'
 import ReponsiveList from '@/components/Lists/ReponsiveList.vue'
-import News from '@/components/IntroContent/News.vue'
 import ContentIntro from '@/components/IntroContent/ContentIntro.vue'
 import Footer from '@/components/Footer.vue'
 import Ranking from '@/components/Ranking.vue'
@@ -39,11 +41,8 @@ export default {
     SliderComponent,
     SearchBarComponent,
     ColumnList,
-    ListComponent,
     List,
-    Category,
     ReponsiveList,
-    News,
     ContentIntro,
     Footer,
     Ranking
@@ -133,9 +132,13 @@ export default {
   gap: 16px
   width: 100%
   background-color: white
-
 .centered
   margin: 0 auto; // Căn giữa các phần tử trong .centered
+.ranking
+  padding: 20px 20px
+  margin-top:2rem
+  justify-content: center
+
 
 @media (min-width: 600px)
   .lists

@@ -58,12 +58,14 @@ export default {
     gap: 20px
     padding: 10px 0
     scroll-snap-type: x mandatory
+    border-bottom: 1px solid #ccc
 
     .card
       flex: 0 0 calc((100% - 70px) / 4)
       border-radius: 5px
       cursor: pointer
       scroll-snap-align: start
+
 
       img
         width: 100%
