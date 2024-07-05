@@ -1,7 +1,7 @@
 <template lang="pug">
 nav.nav-bar
   ul
-    li(v-for="item in filteredNavItems" :key="item.text" class="nav-item" )
+    li(v-for="item in filteredNavItems" :key="item.text" class="nav-item" @click="handleNavClick(item)" )
       font-awesome-icon(:icon="item.icon" :style="{ color: item.color }")
       span.nav-text {{ item.text }}
 </template>
@@ -39,6 +39,15 @@ export default {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    handleNavClick(item) {
+      if (item.text === 'Xếp Hạng') {
+        this.$emit('scrollToRanking')
+      } else if (item.text === 'Top User') {
+        this.$emit('scrollToTopUser')
+      } else {
+        this.navigate(item.route)
+      }
+    },
     navigate(route) {
       this.$router.push(route)
     },
@@ -48,7 +57,6 @@ export default {
   }
 }
 </script>
-
 <style lang="stylus" scoped>
 .nav-bar
   display: flex

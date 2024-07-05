@@ -14,11 +14,12 @@ import {
   faComment,
   faUser,
   faComments,
-  faStore
+  faStore,
+  faArrowUp
 } from '@fortawesome/free-solid-svg-icons'
 import App from './App.vue'
 import router from './router'
-library.add(faList, faStar, faFilter, faUsers, faComment, faUser, faComments, faStore)
+library.add(faList, faStar, faFilter, faUsers, faComment, faUser, faComments, faStore, faArrowUp)
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(createPinia())
